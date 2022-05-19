@@ -5,8 +5,6 @@ import os
 
 app = FastAPI()
 
-
-
 ##pipeline = joblib.load("modelos/pipeline1.joblib")
 ##modelo = joblib.load("modelos/model01.joblib")
 
@@ -23,10 +21,6 @@ model = joblib.load('model.joblib')
 os.remove('pipeline.joblib')
 
 os.remove('model.joblib')
-
-print(model.predict(transformer.transform([['female', 80, 20000, 'free']])))
-
-print(model.predict_proba(transformer.transform([['female', 80, 20000, 'free']])))
 
 @app.post("/predict")
 def predict(sexo: str=Form(...),
